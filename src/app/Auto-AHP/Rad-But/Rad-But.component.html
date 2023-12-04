@@ -1,0 +1,78 @@
+<label for="dropdown">Select number of critiria:</label>
+<select id="dropdown" [(ngModel)]="numCretirea" (ngModelChange)="ChangeView()">
+  <option *ngFor="let cr of creterias" [value]="cr.value">{{ cr.name }}</option>
+</select>
+<button (click)="CalculateAHP()">Calculate</button>
+  <table>
+    
+      <tr>
+        <th>#No</th>
+        <th>options</th>
+        <th>numbers</th>
+        <th>selected</th>
+      </tr>
+    
+    <tbody>
+      <tr *ngFor=" let array of arrays; let i = index">
+        <td>{{i+1}}</td>
+        <td>
+          <span *ngFor="let option of array.options;">
+    
+            <input
+              type="radio"
+              [(ngModel)]="array.result.selectedOption"
+              [value]="option.value"
+              name="radioGroup_options'{{i}}'"
+            />
+            <label for="radioGroup_options">{{ option.symble }}</label>
+          </span>
+        </td>
+        <td>
+          <span *ngFor="let num of array.numbers">
+            <input
+              type="radio"
+              [(ngModel)]="array.result.selectedNumber"
+              [value]="num"
+              name="radioGroup_numbers{{i}}"
+            />
+            <label for="radio">{{ num }}</label>
+           </span>
+        </td>
+        <td>{{array.result.selectedOption  }} {{array.result.selectedNumber}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+
+<ng-container *ngIf="arrayResult.length>0">
+  <div style="display: inline-block;">
+    <p>matrix</p>
+    <table >
+      <tr>
+        <td></td>
+        <td *ngFor="let s of workingSymboles">{{s}}</td>
+      </tr>
+      <tr *ngFor="let row of arrayResult;let i=index">
+        <td>{{workingSymboles[i]}}</td>
+        <td *ngFor="let cell of row">{{ cell }}</td>
+      </tr>
+    </table>
+  </div>
+  
+</ng-container>
+<ng-container *ngIf="weightsResult.length>0">
+  <div style="display: inline-block; margin-left: 100px;">
+    <p>Weights</p>
+    <table >
+      <!-- <tr>
+        <td></td>
+        <td *ngFor="let s of workingSymboles">{{s}}</td>
+      </tr> -->
+      <tr *ngFor="let value of weightsResult;let i=index">
+        <td>{{workingSymboles[i]}}</td>
+        <td>{{value}}</td>
+      </tr>
+    </table>
+  </div>
+</ng-container>
+

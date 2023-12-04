@@ -1,0 +1,24 @@
+/* radio-buttons.component.css */
+
+table {
+    
+    border-collapse: collapse;
+    margin-top: 20px;
+    
+  }
+  
+  th, td {
+
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+  
+  p {
+    margin-top: 20px;
+  }
+  
