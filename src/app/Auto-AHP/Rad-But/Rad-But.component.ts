@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 export interface AHPCollection{
   options:Option[];
   numbers:number[];
@@ -34,7 +34,7 @@ symbles:string[]=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P
 numbers:number[]=[1, 2, 3, 4, 5, 6, 7, 8, 9];
 workingSymboles!:string[];
 arrays: AHPCollection[] = []//[{options:[{symble:'A',value:1}, {symble:'B',value:2}],numbers:[1, 2, 3, 4, 5, 6, 7, 8, 9],result:{selectedOption:1,selectedNumber:1}}]; // Array of radio button options // Array of radio button options
-  numCretirea:number=2;
+ @Input() numCretirea:number=2;
   constructor() { }
   arrayResult:number[][]=[];
   weightsResult:number[]=[];

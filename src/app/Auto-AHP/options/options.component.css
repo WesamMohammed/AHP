@@ -1,0 +1,23 @@
+/* app.component.css */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+  }
+  
+  .styled-link {
+    padding: 15px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+    margin: 10px;
+  }
+  
+  .styled-link:hover {
+    background-color: #45a049;
+    cursor: pointer;
+  }
+  

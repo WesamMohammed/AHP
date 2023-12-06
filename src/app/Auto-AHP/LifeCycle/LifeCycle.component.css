@@ -1,0 +1,21 @@
+/* app.component.css */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+  }
+  
+  .styled-link {
+    padding: 15px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .styled-link:hover {
+    background-color: #45a049;
+  }
+  

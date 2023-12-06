@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-Auto-AHP',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Auto-AHP.component.css']
 })
 export class AutoAHPComponent implements OnInit {
+option=2;
+constructor(private route: ActivatedRoute) {}
 
-  constructor() { }
+ngOnInit() {
+  // Read the id parameter from the route
+  this.route.paramMap.subscribe(params => {
+     
+     const idParam = params.get('id');
+     this.option = idParam ? parseInt(idParam, 10) : 2;
+  });
 
-  ngOnInit() {
-  }
-
+}
 }

@@ -1,2 +1,11 @@
+<nav class="navbar" *ngIf="currentUser">
+    <div class="user-details" >
+        <img [src]="" alt="Avatar">
+        <div class="username">{{ currentUser.username }}</div>
+      </div>
+    <div class="nav-item">
+      <button (click)="logout()">Logout</button>
+    </div>
+</nav>
 <router-outlet></router-outlet>
 
