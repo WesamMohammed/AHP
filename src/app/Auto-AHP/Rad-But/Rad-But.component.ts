@@ -53,6 +53,8 @@ arrays: AHPCollection[] = []//[{options:[{symble:'A',value:1}, {symble:'B',value
     
     this.symbles=this.currentOption.symboles;
     this.numCretirea=this.currentOption.value;
+    this.arrayResult=this.currentOption.arrayResult;
+    this.weightsResult=this.currentOption.weightsResult
  this.ChangeView()
   }
   ChangeView() {
@@ -115,6 +117,8 @@ for(let i=0;i<this.numCretirea;i++){
 
 this.CalculateWeights();
 this.currentOption.calculated=true;
+this.currentOption.weightsResult=this.weightsResult;
+this.currentOption.arrayResult=this.arrayResult;
 this.optionsService.updateOptions(this.options);
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Options2LocalstorageService } from '../../Options2Localstorage.service';
+import { OptionsLocalstorageService } from '../../OptionsLocalstorage.service';
+
 
 @Component({
   selector: 'app-options2',
@@ -7,9 +8,9 @@ import { Options2LocalstorageService } from '../../Options2Localstorage.service'
   styleUrls: ['./options2.component.css']
 })
 export class Options2Component implements OnInit {
-options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Secondary indicators)",value:2,selectValue:1,symboles:["Primary indicators",
+  options=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Secondary indicators)",value:2,selectValue:1,symboles:["Primary indicators",
   "Secondary indicators"
-  ],calculated:false},
+  ],calculated:false,arrayResult:null,weightsResult:null},
 
   {show:"	Primary Indicators Pairwise comparison (Primary Indicators Pairwise comparison)",value:16,selectValue:2,symboles:[
     "Energy Performance ",
@@ -28,17 +29,17 @@ options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Sec
     "Sustainable Drainage",
     "Life Cycle Cost",
     "Value Creation and Risk Exposure",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"	Sub-Primary Indicators Pairwise comparison (First Sub-Primary Indicators Pairwise comparison)",value:2,selectValue:3,symboles:[
     "Total Energy Consumption",
     "Total Renewable Energy Consumption",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"	Sub-Primary Indicators Pairwise comparison (Fourth Sub-Primary Indicators Pairwise comparison)",value:2,selectValue:4,symboles:[
     "Waste in Construction Stage",
     "Waste in Demolishing Stage",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Secondary Indicators Pairwise comparison (Secondary Indicators Pairwise comparison)",value:8,selectValue:5,symboles:[
     "Access to Care",
@@ -49,7 +50,7 @@ options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Sec
     "Information & Education",
     "Coordination & Integration of Care",
     "Respect to Patients’ Values Preferences & Needs",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (First Sub-Secondary Indicators Pairwise comparison)",value:5,selectValue:6,symboles:[
     "Access to healthcare location",
@@ -57,28 +58,28 @@ options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Sec
     "The ease of getting an appointment",
     "Timing",
     "The access to the services according to the exact needs",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Second Sub-Secondary Indicators Pairwise comparison)",value:4,selectValue:7,symboles:[
     "Ongoing treatment after discharge",
     "Timing",
     "Follow-up care",
     "Survivorship",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Third Sub-Secondary Indicators Pairwise comparison)",value:4,selectValue:8,symboles:[
     "Accommodations services to family and close fiends",
     "Recognizing family and friends needs",
     "Timing",
     "Family & friend’s involvement",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Fourth Sub-Secondary Indicators Pairwise comparison)",value:4,selectValue:9,symboles:[
     "Timing",
     "Psychological care",
     "Emotional support",
     "Patients involvement in informed d4ecesion",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Fifth Sub-Secondary Indicators Pairwise comparison)",value:5,selectValue:10,symboles:[
     "Pain management",
@@ -86,7 +87,7 @@ options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Sec
     "Safety aspects",
     "Patient’s support to control physical complaints",
     "Physical comfort",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Sixth Sub-Secondary Indicators Pairwise comparison)",value:7,selectValue:11,symboles:[
     "Information on patient status and treatment progress",
@@ -96,7 +97,7 @@ options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Sec
     "Patient’s awareness in side effects",
     "Patient’s feedback (Regular Surveys)",
     "Privacy",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Seventh Sub-Secondary Indicators Pairwise comparison)",value:9,selectValue:12,symboles:[
     "Effective communication with patient ",
@@ -108,7 +109,7 @@ options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Sec
     "Equip pharmacy, medical records & other allied services with automation and updated tech",
     "Patient centeredness polices are in place",
     "Patient centeredness implementation",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Eighth Sub-Secondary Indicators Pairwise comparison)",value:7,selectValue:13,symboles:[
     "Timing",
@@ -118,14 +119,14 @@ options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Sec
     "Considerations to patient values, preferences, and express needs",
     "Companionate care",
     "Equality (patient with special needs are given care..",
-    ],calculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:null},
   ]
-  constructor(private optionsService: Options2LocalstorageService) { 
-    optionsService.setOptions2(this.options2);
+  constructor(private optionsService: OptionsLocalstorageService) { 
+    optionsService.setOptions(this.options);
   }
 
   ngOnInit() {
-    this.options2=this.optionsService.getOptions2();
+    this.options=this.optionsService.getOptions();
   }
 
 }

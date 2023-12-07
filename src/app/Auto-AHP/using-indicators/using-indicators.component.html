@@ -1,3 +1,38 @@
-<p>
-  using-indicators works!
-</p>
+
+<h1>Indicators</h1>
+  <a  (click)="Calculate()" class="styled-link">Calculate</a>
+
+
+  <ng-container *ngIf="arrayResult.length>0">
+    <div style="display: inline-block;">
+      <p>matrix</p>
+      <table >
+        <tr>
+          <td></td>
+          <td *ngFor="let s of workingSymboles">{{s}}</td>
+        </tr>
+        <tr *ngFor="let row of arrayResult;let i=index">
+          <td>{{workingSymboles[i]}}</td>
+          <td *ngFor="let cell of row">{{ cell }}</td>
+        </tr>
+      </table>
+    </div>
+    
+  </ng-container>
+  <ng-container *ngIf="weightsResultWithUser.length>0">
+    <div style="display: inline-block; margin-left: 100px;">
+      <p>Weights</p>
+      <table >
+     
+        <tr *ngFor="let value of weightsResultWithUser;let i=index">
+          <td>{{workingSymboles[i]}}</td>
+          <td>{{value.programeWeight}}</td>
+          <td><input [(ngModel)]="value.userWeight" type="text"></td>
+        </tr>
+      </table>
+    </div>
+  </ng-container>
+
+<div class="result">
+  <h3>Total : {{value}}</h3>
+</div>
