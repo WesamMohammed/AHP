@@ -43,8 +43,12 @@ export class UsingIndicatorsComponent implements OnInit {
      
      this.symbles=this.currentOption.symboles;
      this.numCretirea=this.currentOption.value;
-     this.arrayResult=this.currentOption.arrayResult;
-     this.weightsResult=this.currentOption.weightsResult
+     if(this.currentOption.arrayResult){
+      this.arrayResult=this.currentOption.arrayResult;
+    }
+    if(this.currentOption.weightsResult){
+      this.weightsResult=this.currentOption.weightsResult
+    }
      this.ChangeView()
      this.SetWeightsWithUser()
     }
