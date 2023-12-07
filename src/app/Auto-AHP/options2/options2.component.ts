@@ -127,6 +127,7 @@ export class Options2Component implements OnInit {
 
   ngOnInit() {
     this.options=this.optionsService.getOptions();
+    this.options.reverse();
   }
 
 }
