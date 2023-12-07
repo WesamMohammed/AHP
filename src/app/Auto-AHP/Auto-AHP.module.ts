@@ -7,6 +7,8 @@ import { RadButComponent } from './Rad-But/Rad-But.component';
 import { LifeCycleComponent } from './LifeCycle/LifeCycle.component';
 import { Page2Component } from './page2/page2.component';
 import { OptionsComponent } from './options/options.component';
+import { Options2Component } from './options2/options2.component';
+import { UsingIndicatorsComponent } from './using-indicators/using-indicators.component';
 
 @NgModule({
   imports: [
@@ -14,6 +16,6 @@ import { OptionsComponent } from './options/options.component';
     FormsModule,
     AutoAHPRoutingModule
   ],
-  declarations: [AutoAHPComponent,RadButComponent,LifeCycleComponent,Page2Component,OptionsComponent]
+  declarations: [AutoAHPComponent,RadButComponent,LifeCycleComponent,Page2Component,OptionsComponent,Options2Component,UsingIndicatorsComponent]
 })
 export class AutoAHPModule { }

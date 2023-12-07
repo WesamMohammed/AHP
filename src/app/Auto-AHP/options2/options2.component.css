@@ -1,26 +1,11 @@
-/* radio-buttons.component.css */
-
-table {
-    
-    border-collapse: collapse;
-    margin-top: 20px;
-    
+/* app.component.css */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
   }
   
-  th, td {
-
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  label {
-    margin-right: 10px;
-  }
-  
-  p {
-    margin-top: 20px;
-  }
   .styled-link {
     padding: 15px;
     background-color: #4caf50;

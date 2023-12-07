@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { OptionsLocalstorageService } from '../../OptionsLocalstorage.service';
 export interface AHPCollection{
   options:Option[];
   numbers:number[];
@@ -29,17 +30,29 @@ creterias=[
   {name:"Eight",value:8},{name:"Nine",value:9},{name:"Ten",value:10},{name:"Elevent",value:11},{name:"Twelve",value:12},{name:"Thirteen",value:13},{name:"Fourteen",value:14},{name:"Fifteen",value:15},{name:"Sixtenn",value:16}
 
 ]
- 
+currentOption!:any;
+ options!:any[];
 symbles:string[]=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"];
 numbers:number[]=[1, 2, 3, 4, 5, 6, 7, 8, 9];
 workingSymboles!:string[];
 arrays: AHPCollection[] = []//[{options:[{symble:'A',value:1}, {symble:'B',value:2}],numbers:[1, 2, 3, 4, 5, 6, 7, 8, 9],result:{selectedOption:1,selectedNumber:1}}]; // Array of radio button options // Array of radio button options
- @Input() numCretirea:number=2;
-  constructor() { }
+@Input() selectedOption=1;
+  numCretirea:number=2;
+  constructor(private optionsService: OptionsLocalstorageService) { 
+     this.options=optionsService.getOptions();
+
+
+
+  }
   arrayResult:number[][]=[];
   weightsResult:number[]=[];
 
   ngOnInit() {
+    this.currentOption=this.options.find(a=>a.selectValue===this.selectedOption);
+    
+    
+    this.symbles=this.currentOption.symboles;
+    this.numCretirea=this.currentOption.value;
  this.ChangeView()
   }
   ChangeView() {
@@ -101,6 +114,9 @@ for(let i=0;i<this.numCretirea;i++){
 }
 
 this.CalculateWeights();
+this.currentOption.calculated=true;
+this.optionsService.updateOptions(this.options);
+
 }
   CalculateWeights() {
     this.weightsResult=[]

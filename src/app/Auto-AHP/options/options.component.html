@@ -1,6 +1,12 @@
 <div class="center-container">
 
+  <ng-container *ngFor="let option of options" >
   
-  <a *ngFor="let option of options" routerLink="/ahp/{{option.value}}" class="styled-link">{{option.show}} </a>
+      <a  routerLink="/ahp/{{option.selectValue}}" class="styled-link">{{option.show}}  <input type="checkbox" [checked]="option.calculated" [disabled]="true"></a>
+ 
+
+  
+  </ng-container>
+  
 </div>
 

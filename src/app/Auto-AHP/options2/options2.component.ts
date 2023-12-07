@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { OptionsLocalstorageService } from '../../OptionsLocalstorage.service';
+import { Options2LocalstorageService } from '../../Options2Localstorage.service';
 
 @Component({
-  selector: 'app-options',
-  templateUrl: './options.component.html',
-  styleUrls: ['./options.component.css']
+  selector: 'app-options2',
+  templateUrl: './options2.component.html',
+  styleUrls: ['./options2.component.css']
 })
-export class OptionsComponent implements OnInit {
-options=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Secondary indicators)",value:2,selectValue:1,symboles:["Primary indicators",
+export class Options2Component implements OnInit {
+options2=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Secondary indicators)",value:2,selectValue:1,symboles:["Primary indicators",
   "Secondary indicators"
   ],calculated:false},
 
@@ -120,12 +120,12 @@ options=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Seco
     "Equality (patient with special needs are given care..",
     ],calculated:false},
   ]
-  constructor(private optionsService: OptionsLocalstorageService) { 
-    optionsService.setOptions(this.options);
+  constructor(private optionsService: Options2LocalstorageService) { 
+    optionsService.setOptions2(this.options2);
   }
 
   ngOnInit() {
-    this.options=this.optionsService.getOptions();
+    this.options2=this.optionsService.getOptions2();
   }
 
 }

@@ -1,15 +1,14 @@
-<label for="dropdown">Select number of critiria:</label>
-<select id="dropdown" [(ngModel)]="numCretirea" (ngModelChange)="ChangeView()">
-  <option *ngFor="let cr of creterias" [value]="cr.value">{{ cr.name }}</option>
-</select>
-<button (click)="CalculateAHP()">Calculate</button>
+
+<a  (click)="CalculateAHP()" class="styled-link">Calculate</a>
+<a routerLink="/options" class="styled-link">LAHP / Weights</a>
   <table>
     
       <tr>
         <th>#No</th>
-        <th>options</th>
-        <th>numbers</th>
-        <th>selected</th>
+        <th>AHP Periorities</th>
+        <th>Equal</th>
+        <th>How much more?</th>
+        
       </tr>
     
     <tbody>
@@ -28,17 +27,28 @@
           </span>
         </td>
         <td>
-          <span *ngFor="let num of array.numbers">
-            <input
+          <input
               type="radio"
               [(ngModel)]="array.result.selectedNumber"
-              [value]="num"
+              [value]="array.numbers[0]"
               name="radioGroup_numbers{{i}}"
             />
-            <label for="radio">{{ num }}</label>
+            <label for="radio">{{ array.numbers[0] }}</label>
+        </td>
+        <td>
+          <span *ngFor="let num of array.numbers;let j=index">
+           <ng-container *ngIf="j>0">
+            <input
+            type="radio"
+            [(ngModel)]="array.result.selectedNumber"
+            [value]="num"
+            name="radioGroup_numbers{{i}}"
+          />
+          <label for="radio">{{ num }}</label>
+          </ng-container>
            </span>
         </td>
-        <td>{{array.result.selectedOption  }} {{array.result.selectedNumber}}</td>
+        
       </tr>
     </tbody>
   </table>
