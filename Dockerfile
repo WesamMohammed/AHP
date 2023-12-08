@@ -1,11 +1,12 @@
 FROM node:20.10.0 AS build
 
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
 COPY . .
-RUN npm ng build --prod
+RUN npx ng build --prod
 
 FROM nginx:alpine
 
