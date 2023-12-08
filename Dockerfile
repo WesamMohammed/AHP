@@ -6,7 +6,7 @@ COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
 COPY . .
-RUN npx ng build --prod
+RUN npx ng build --configuration=production
 
 FROM nginx:alpine
 
