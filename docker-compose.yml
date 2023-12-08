@@ -1,8 +1,9 @@
 services:
   ahp-angular:
-    image: ${DOCKER_REGISTRY-}ahp
+    image: ${DOCKER_REGISTRY-}ahp-angular
     build:
       context: .
       dockerfile: ./Dockerfile      
     ports:
       - "8070:80" 
+      
