@@ -1,5 +1,5 @@
 services:
-  accounting-angular:
+  ahp-angular:
     image: ${DOCKER_REGISTRY-}ahp
     build:
       context: .
