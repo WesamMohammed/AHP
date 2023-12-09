@@ -38,3 +38,7 @@ table {
   .result{
     background: #5f9ea03d;
   }
+
+  .must{
+    color: red;
+  }

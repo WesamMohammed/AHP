@@ -13,12 +13,13 @@ export interface WeightsWithUsers{
 })
 export class UsingIndicatorsComponent implements OnInit {
   currentOption!:any;
+  disableCalculate=false;
   value=0;
   selectValue=1;
   options!:any[];
- symbles:string[]=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"];
+ symbles:any[]=[];
  numbers:number[]=[1, 2, 3, 4, 5, 6, 7, 8, 9];
- workingSymboles!:string[];
+ workingSymboles!:any[];
  arrays: AHPCollection[] = []//[{options:[{symble:'A',value:1}, {symble:'B',value:2}],numbers:[1, 2, 3, 4, 5, 6, 7, 8, 9],result:{selectedOption:1,selectedNumber:1}}]; // Array of radio button options // Array of radio button options
  @Input() selectedOption=1;
    numCretirea:number=2;
@@ -30,7 +31,7 @@ export class UsingIndicatorsComponent implements OnInit {
    }
    arrayResult:number[][]=[];
    weightsResult:number[]=[];
-   weightsResultWithUser:WeightsWithUsers[]=[];
+   weightsResultWithUser:any[]=[];
  
    ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -41,7 +42,7 @@ export class UsingIndicatorsComponent implements OnInit {
      this.currentOption=this.options.find(a=>a.selectValue===this.selectedOption);
      console.log("currentOption:",this.currentOption);
      
-     this.symbles=this.currentOption.symboles;
+     this.symbles=(this.currentOption.symboles);
      this.numCretirea=this.currentOption.value;
      if(this.currentOption.arrayResult){
       this.arrayResult=this.currentOption.arrayResult;
@@ -55,8 +56,23 @@ export class UsingIndicatorsComponent implements OnInit {
   SetWeightsWithUser() {
     
     
-    this.weightsResult.forEach(a=>{
-      this.weightsResultWithUser.push({programeWeight:a,userWeight:0});
+    this.weightsResult.forEach((a,index)=>{
+      let dependOn=this.symbles[index].dependOn;
+      const data={text:this.symbles[index].text,programeWeight:a,userWeight:0,message:'',byUser:true};
+      if(dependOn){
+        let d=this.options.find(a=>a.selectValue===dependOn);
+        data.byUser=false;
+        data.message='';
+        if(d?.indicatoreCalculated){
+          data.userWeight=d.indicatoreValue
+        }else{
+          this.disableCalculate=true
+          data.message=` ${d.show} must be culculated`;
+        }
+        
+      }
+     
+      this.weightsResultWithUser.push(data);
     })
   }
     ChangeView() {
@@ -87,6 +103,19 @@ export class UsingIndicatorsComponent implements OnInit {
     return map;
   }
   Calculate(){
+    let error=false;
+    this.weightsResultWithUser.forEach(element => {
+      if(element.userWeight<=0|| element.userWeight>1){
+        error=true;
+        if(element.byUser){
+          element.message="must be greater than 0 and less or equal 1"
+        }
+      };
+      
+    });
+    if(error){
+      return;
+    }
     let factor=0;
     let sum=0;
     this.weightsResultWithUser.forEach(a=>{
@@ -95,7 +124,9 @@ export class UsingIndicatorsComponent implements OnInit {
     })
 this.value=factor/sum;
 
-console.log("finalValue:",this.value);
+this.currentOption.indicatoreValue=this.value;
+this.currentOption.indicatoreCalculated=true;
+this.optionsService.updateOptions(this.options)
 
   }
 }

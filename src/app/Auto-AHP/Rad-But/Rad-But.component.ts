@@ -6,7 +6,7 @@ export interface AHPCollection{
   result:AHPResult;
 }
 export interface Option{
-  symble:string;
+  symble:any;
   value:number;
   
 }
@@ -32,7 +32,7 @@ creterias=[
 ]
 currentOption!:any;
  options!:any[];
-symbles:string[]=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"];
+symbles:any[]=[];
 numbers:number[]=[1, 2, 3, 4, 5, 6, 7, 8, 9];
 workingSymboles!:string[];
 arrays: AHPCollection[] = []//[{options:[{symble:'A',value:1}, {symble:'B',value:2}],numbers:[1, 2, 3, 4, 5, 6, 7, 8, 9],result:{selectedOption:1,selectedNumber:1}}]; // Array of radio button options // Array of radio button options
@@ -51,7 +51,7 @@ arrays: AHPCollection[] = []//[{options:[{symble:'A',value:1}, {symble:'B',value
     this.currentOption=this.options.find(a=>a.selectValue===this.selectedOption);
     
     
-    this.symbles=this.currentOption.symboles;
+    this.symbles=(this.currentOption.symboles)
     this.numCretirea=this.currentOption.value;
     if(this.currentOption.arrayResult){
       this.arrayResult=this.currentOption.arrayResult;
