@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OptionsLocalstorageService } from '../../OptionsLocalstorage.service';
+import { Router } from '@angular/router';
+import { RouteBackService } from '../../route-back/route-back.service';
 
 @Component({
   selector: 'app-options',
@@ -120,8 +122,14 @@ options=[{show:"Main Indicators Pairwise comparison (Primary indicators Vs. Seco
     "Equality (patient with special needs are given care..",
     ],calculated:false,arrayResult:null,weightsResult:null},
   ]
-  constructor(private optionsService: OptionsLocalstorageService) { 
+  items:any[]=[{title:"LifeCycle",link:"/lifecycle",command:()=>{
+    this.router.navigate(["/lifecycle"])}
+  },{title:"Page2",link:"/page2",command:()=>{
+    this.router.navigate(["/page2"])}},{title:"Options"}]
+  constructor(private optionsService: OptionsLocalstorageService,private router:Router,private routeBaclServoce:RouteBackService) { 
+
     optionsService.setOptions(this.options);
+    this.routeBaclServoce.setBreadcrumbs(this.items);
   }
 
   ngOnInit() {

@@ -6,6 +6,10 @@
     <div class="nav-item">
       <button (click)="logout()">Logout</button>
     </div>
+
 </nav>
+<ng-container *ngIf="currentUser">
+  <app-route-back></app-route-back>
+</ng-container>
 <router-outlet></router-outlet>
 

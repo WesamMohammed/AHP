@@ -1,0 +1,21 @@
+<!-- <div class="route-back-body" >
+  <h4 class="route-back-title" *ngFor="let item of items">
+  {{item.title}}
+  </h4>
+</div> -->
+
+<div class="breadcrumb-container">
+  <div class="breadcrumb">
+    <ng-container *ngFor="let crumb of items  ; let last = last">
+      <ng-container *ngIf="!last; else lastCrumb">
+        <a (click)="Comand(crumb.command)"    >{{ crumb.title }}</a> 
+        <span style="margin-right: 10px;">
+          &gt;
+        </span>
+      </ng-container>
+      <ng-template #lastCrumb>
+        {{ crumb.title }}
+      </ng-template>
+    </ng-container>
+  </div>
+</div>

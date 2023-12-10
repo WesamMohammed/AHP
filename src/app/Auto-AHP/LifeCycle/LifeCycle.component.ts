@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { RouteBackService } from '../../route-back/route-back.service';
 
 @Component({
   selector: 'app-LifeCycle',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./LifeCycle.component.css']
 })
 export class LifeCycleComponent implements OnInit {
-
-  constructor() { }
-
+items:any[]=[{title:"LifeCycle",link:'lifecycle'}]
+  constructor(private routbackSer:RouteBackService) {
+    this.routbackSer.setBreadcrumbs(this.items);
+   }
+ 
   ngOnInit() {
+    
   }
 
 }

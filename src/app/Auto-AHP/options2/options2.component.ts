@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OptionsLocalstorageService } from '../../OptionsLocalstorage.service';
+import { Router } from '@angular/router';
+import { RouteBackService } from '../../route-back/route-back.service';
 
 
 @Component({
@@ -121,8 +123,13 @@ export class Options2Component implements OnInit {
     "Equality (patient with special needs are given care..",
     ],calculated:false,arrayResult:null,weightsResult:null},
   ]
-  constructor(private optionsService: OptionsLocalstorageService) { 
+  items:any[]=[{title:"LifeCycle",link:"/lifecycle",command:()=>{
+    this.router.navigate(["/lifecycle"])}
+  },{title:"Page2",link:"/page2",command:()=>{
+    this.router.navigate(["/page2"])}},{title:"Indicators Options"}]
+  constructor(private optionsService: OptionsLocalstorageService,private router:Router,private routeBacke:RouteBackService) { 
     optionsService.setOptions(this.options);
+    this.routeBacke.setBreadcrumbs(this.items)
   }
 
   ngOnInit() {

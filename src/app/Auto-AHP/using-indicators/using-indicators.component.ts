@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { OptionsLocalstorageService } from '../../OptionsLocalstorage.service';
 import { AHPCollection, Mapping } from '../Rad-But/Rad-But.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouteBackService } from '../../route-back/route-back.service';
 export interface WeightsWithUsers{
   programeWeight:number;
   userWeight:number;
@@ -12,6 +13,11 @@ export interface WeightsWithUsers{
   styleUrls: ['./using-indicators.component.css']
 })
 export class UsingIndicatorsComponent implements OnInit {
+  items:any[]=[{title:"LifeCycle",link:"/lifecycle",command:()=>{
+    this.router.navigate(["/lifecycle"])}
+  },{title:"Page2",link:"/page2",command:()=>{
+    this.router.navigate(["/page2"])}},{title:"Indicators Options",command:()=>{
+      this.router.navigate(["/indicators"])}},{title:"indicator"}]
   currentOption!:any;
   disableCalculate=false;
   value=0;
@@ -23,9 +29,9 @@ export class UsingIndicatorsComponent implements OnInit {
  arrays: AHPCollection[] = []//[{options:[{symble:'A',value:1}, {symble:'B',value:2}],numbers:[1, 2, 3, 4, 5, 6, 7, 8, 9],result:{selectedOption:1,selectedNumber:1}}]; // Array of radio button options // Array of radio button options
  @Input() selectedOption=1;
    numCretirea:number=2;
-   constructor(private optionsService: OptionsLocalstorageService,private route: ActivatedRoute) { 
+   constructor(private optionsService: OptionsLocalstorageService,private route: ActivatedRoute,private router:Router,private routeBack:RouteBackService) { 
       this.options=optionsService.getOptions();
- 
+ this.routeBack.setBreadcrumbs(this.items);
  
  
    }
@@ -104,6 +110,9 @@ export class UsingIndicatorsComponent implements OnInit {
   }
   Calculate(){
     let error=false;
+    if(this.weightsResultWithUser.length<=0){
+      error=true;
+    }
     this.weightsResultWithUser.forEach(element => {
       if(element.userWeight<=0|| element.userWeight>1){
         error=true;

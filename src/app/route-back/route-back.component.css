@@ -1,0 +1,53 @@
+
+
+.route-back-body{
+    background-color: aliceblue;
+    width: fit-content; 
+    display: flex;
+}
+.route-back-title{
+    
+}
+
+
+/* breadcrumb.component.css */
+
+.breadcrumb-container {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+  
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-right: 10px;
+    
+  }
+  
+  .breadcrumb a:hover {
+    color: #2980b9;
+    cursor: pointer;
+  }
+  
+  .breadcrumb span {
+    color: #555;
+  }
+  
+  .breadcrumb::before {
+    content: '\00BB';
+    margin: 0 8px;
+    color: #555;
+  }
+  
