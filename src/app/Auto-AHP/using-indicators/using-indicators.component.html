@@ -1,5 +1,5 @@
 
-<h3> {{currentOption.show}}   <a  (click)="Calculate()" class="styled-link">Calculate</a></h3>
+<h3> {{currentOption.show}} </h3>
  
 
   <ng-container *ngIf="weightsResultWithUser.length>0">
@@ -27,5 +27,8 @@
   </ng-container>
 
 <div class="result">
-  <h3>Total : {{value}}</h3>
+  
+    <h3>Total : {{value}}</h3>
+  
+   <a  (click)="Calculate()" class="styled-link">Calculate</a>
 </div>
