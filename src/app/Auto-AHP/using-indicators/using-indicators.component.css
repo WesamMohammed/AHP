@@ -36,9 +36,19 @@ table {
     cursor: pointer;
   }
   .result{
+    
     background: #5f9ea03d;
+    position: relative;
   }
 
+  .result a{
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+ 
   .must{
     color: red;
   }
