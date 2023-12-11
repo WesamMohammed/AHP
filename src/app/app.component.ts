@@ -26,6 +26,8 @@ export class AppComponent {
    }
 logout(){
 this.userService.logout();
+localStorage.removeItem("options");
+localStorage.removeItem("users");
 this.router.navigate(["/login"])
 }
   
