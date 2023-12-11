@@ -22,13 +22,16 @@ table {
     margin-top: 20px;
   }
   .styled-link {
-    padding: 15px;
+    
     background-color: #4caf50;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease-in-out;
-    margin: 10px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    
   }
   
   .styled-link:hover {
@@ -36,3 +39,10 @@ table {
     cursor: pointer;
   }
   
+  @media(max-width:757px){
+
+    .styled-link{
+      position: relative;
+
+    }
+  }
