@@ -114,10 +114,10 @@ export class UsingIndicatorsComponent implements OnInit {
       error=true;
     }
     this.weightsResultWithUser.forEach(element => {
-      if(element.userWeight<=0|| element.userWeight>1){
+      if(element.userWeight<=0|| element.userWeight>100){
         error=true;
         if(element.byUser){
-          element.message="must be greater than 0 and less or equal 1"
+          element.message="must be greater than 0 and less or equal 100"
         }
       };
       
@@ -137,5 +137,8 @@ this.currentOption.indicatoreValue=this.value;
 this.currentOption.indicatoreCalculated=true;
 this.optionsService.updateOptions(this.options)
 
+  }
+  rounding(value:number,num:number):number{
+    return Math.round(value*num)/num;
   }
 }

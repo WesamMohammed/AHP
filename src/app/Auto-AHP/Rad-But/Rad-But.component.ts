@@ -130,25 +130,35 @@ this.optionsService.updateOptions(this.options);
     this.weightsResult=[]
     
     this.arrayResult.forEach(row=>{
-      let result=1.0;
+      let result=1;
       row.forEach(val=>{
-        result *=val;
+        result *=val
       })
       let root=Math.pow(result,1/this.numCretirea);
-      this.weightsResult.push(Math.round(root*1000)/1000);
+      this.weightsResult.push(this.rounding(root,100));//this.weightsResult.push(Math.round(root*1000)/1000);
 
     })
 
-    let sum = this.weightsResult.reduce((acc, current) => acc + current, 0);
+    let sum = this.weightsResult.reduce((acc, current) => (this.rounding(acc,100) + this.rounding(current,100)), 0);
     console.log("sum:",sum);
     for(let i=0;i<this.weightsResult.length;i++){
       let v=this.weightsResult[i]/sum;
-      this.weightsResult[i]=Math.round(v*1000)/1000;
+      this.weightsResult[i]=v//this.rounding(v,1000);
       
       
     }
   
     
     
+  }
+
+  rounding(value:number,num:number):number{
+    const v=value*num;
+    const f=Math.round(v);
+    const r=(f/num);
+    console.log("r:",r);
+    
+    
+    return r;
   }
 }

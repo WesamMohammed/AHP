@@ -9,7 +9,7 @@
      
         <tr *ngFor="let value of weightsResultWithUser;let i=index">
           <td>{{value.text}}</td>
-          <td>{{value.programeWeight}}</td>
+          <td>{{rounding((value.programeWeight*100),100)}}</td>
           <td>
          
             <ng-container >
