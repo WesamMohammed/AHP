@@ -65,9 +65,28 @@
     
       <tr *ngFor="let value of weightsResult;let i=index">
         <td>{{symbles[i].text}}</td>
-        <td>{{value}}</td>
+        <td>{{rounding(value*100,100)}}%</td>
       </tr>
     </table>
   </div>
 </ng-container>
+
+
+ <!-- <ng-container *ngIf="arrayResult.length>0">
+  <div style="display: inline-block;">
+    <p>matrix</p>
+    <table >
+      <tr>
+        <td></td>
+        <td *ngFor="let s of workingSymboles">{{s}}</td>
+      </tr>
+      <tr *ngFor="let row of arrayResult;let i=index">
+        <td>{{workingSymboles[i]}}</td>
+        <td *ngFor="let cell of row">{{ cell }}</td>
+      </tr>
+    </table>
+  </div>
+  
+</ng-container>  -->
+
 
