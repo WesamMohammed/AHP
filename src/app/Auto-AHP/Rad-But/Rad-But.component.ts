@@ -25,6 +25,7 @@ selectedNumber:number;
 })
 
 export class RadButComponent implements OnInit {
+  numFuctor=1000000000;
 creterias=[
   {name:"Two",value:2},{name:"Three",value:3},{name:"Four",value:4},{name:"Five",value:5},{name:"Six",value:6},{name:"Seven",value:7},
   {name:"Eight",value:8},{name:"Nine",value:9},{name:"Ten",value:10},{name:"Elevent",value:11},{name:"Twelve",value:12},{name:"Thirteen",value:13},{name:"Fourteen",value:14},{name:"Fifteen",value:15},{name:"Sixtenn",value:16}
@@ -101,10 +102,10 @@ for(let i=0;i<this.numCretirea;i++){
       let s=this.arrays[index]
       if(s.result.selectedOption===1){
         this.arrayResult[i][j]=s.result.selectedNumber;
-        this.arrayResult[j][i]=Math.round((1.0/s.result.selectedNumber)*100)/100;
+        this.arrayResult[j][i]=(1.0/s.result.selectedNumber)
       }
       else if(s.result.selectedOption===2){
-        this.arrayResult[i][j]=Math.round((1.0/s.result.selectedNumber)*100)/100;;
+        this.arrayResult[i][j]=(1.0/s.result.selectedNumber)
         this.arrayResult[j][i]=s.result.selectedNumber;
       }
       else{
@@ -135,11 +136,11 @@ this.optionsService.updateOptions(this.options);
         result *=val
       })
       let root=Math.pow(result,1/this.numCretirea);
-      this.weightsResult.push(this.rounding(root,100));//this.weightsResult.push(Math.round(root*1000)/1000);
+      this.weightsResult.push(this.rounding(root,this.numFuctor));//this.weightsResult.push(Math.round(root*1000)/1000);
 
     })
 
-    let sum = this.weightsResult.reduce((acc, current) => (this.rounding(acc,100) + this.rounding(current,100)), 0);
+    let sum = this.weightsResult.reduce((acc, current) => (this.rounding(acc,this.numFuctor) + this.rounding(current,this.numFuctor)), 0);
     console.log("sum:",sum);
     for(let i=0;i<this.weightsResult.length;i++){
       let v=this.weightsResult[i]/sum;
