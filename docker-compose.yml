@@ -1,6 +1,6 @@
 services:
-  ahp-angular:
-    image: ${DOCKER_REGISTRY-}ahp-angular
+  ahp-angular-fixed-weights:
+    image: ${DOCKER_REGISTRY-}ahp-angular-fixed-weights
     build:
       context: .
       dockerfile: ./Dockerfile
