@@ -60,9 +60,15 @@
 
 <ng-container *ngIf="weightsResult.length>0">
   <div style="display: inline-block; margin-left: 100px;">
-    <p>Weights</p>
-    <table >
     
+    <table class="weights" id="weights">
+   <thead>
+    <tr>
+      
+       <th colspan="2"> <p>Weights</p></th>
+      
+    </tr>
+   </thead>
       <tr *ngFor="let value of weightsResult;let i=index">
         <td>{{symbles[i].text}}</td>
         <td>{{rounding(value*100,100)}}%</td>
@@ -70,7 +76,9 @@
     </table>
   </div>
 </ng-container>
-
+<div style="position: relative;" >
+  
+<a  (click)="exportToExcel()" class="styled-link">Downoad Excel</a>
 
  <!-- <ng-container *ngIf="arrayResult.length>0">
   <div style="display: inline-block;">

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { OptionsLocalstorageService } from '../../OptionsLocalstorage.service';
+import * as XLSX from 'xlsx';
 export interface AHPCollection{
   options:Option[];
   numbers:number[];
@@ -161,5 +162,14 @@ this.optionsService.updateOptions(this.options);
     
     
     return r;
+  }
+
+  exportToExcel(){
+    let fileName="AHP_Weights.xlsx"
+    let data=document.getElementById("weights");
+    const ws:XLSX.WorkSheet=XLSX.utils.table_to_sheet(data);
+    const wb:XLSX.WorkBook=XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,"Sheet1");
+    XLSX.writeFile(wb,fileName);
   }
 }
