@@ -12,7 +12,7 @@ setOptions(options?:any[]){
     {show:"Main Indicators Pairwise comparison (Primary indicators Vs. Secondary indicators)",value:2,selectValue:1,symboles:[
     {text:"Primary indicators",dependOn:2},
     {text:"Secondary indicators",dependOn:5},
-  ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+  ],calculated:false,arrayResult:null,weightsResult:[0.667,0.333],indicatoreValue:0,indicatoreCalculated:false},
 
   {show:"	Primary Indicators Pairwise comparison (Primary Indicators Pairwise comparison)",value:16,selectValue:2,symboles:[
     {text:"Energy Performance ",dependOn:3},
@@ -31,17 +31,17 @@ setOptions(options?:any[]){
     {text:"Sustainable Drainage",dependOn:null},
     {text:"Life Cycle Cost",dependOn:null},
     {text:"Value Creation and Risk Exposure",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.272,0.065,0.052,0.038,0.042,0.043,0.106,0.040,0.038,0.047,0.040,0.047,0.045,0.041,0.044,0.039],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"	Sub-Primary Indicators Pairwise comparison (First Sub-Primary Indicators Pairwise comparison)",value:2,selectValue:3,symboles:[
     {text:"Total Energy Consumption",dependOn:null},
     {text:"Total Renewable Energy Consumption",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.800,0.200],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"	Sub-Primary Indicators Pairwise comparison (Fourth Sub-Primary Indicators Pairwise comparison)",value:2,selectValue:4,symboles:[
     {text:"Waste in Construction Stage",dependOn:null},
     {text:"Waste in Demolishing Stage",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.750,0.250],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Secondary Indicators Pairwise comparison (Secondary Indicators Pairwise comparison)",value:8,selectValue:5,symboles:[
     {text:"Access to Care",dependOn:6},
@@ -52,7 +52,7 @@ setOptions(options?:any[]){
     {text:"Information & Education",dependOn:11},
     {text:"Coordination & Integration of Care",dependOn:12},
     {text:"Respect to Patients’ Values Preferences & Needs",dependOn:13},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.370,0.146,0.076,0.054,0.143,0.065,0.091,0.046],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (First Sub-Secondary Indicators Pairwise comparison)",value:5,selectValue:6,symboles:[
     {text:"Access to healthcare location",dependOn:null},
@@ -60,28 +60,28 @@ setOptions(options?:any[]){
     {text:"The ease of getting an appointment",dependOn:null},
     {text:"Timing",dependOn:null},
     {text:"The access to the services according to the exact needs",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.221,0.223,0.124,0.277,0.155],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Second Sub-Secondary Indicators Pairwise comparison)",value:4,selectValue:7,symboles:[
     {text:"Ongoing treatment after discharge",dependOn:null},
     {text:"Timing",dependOn:null},
     {text:"Follow-up care",dependOn:null},
     {text:"Survivorship",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.476,0.289,0.176,0.059],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Third Sub-Secondary Indicators Pairwise comparison)",value:4,selectValue:8,symboles:[
     {text:"Accommodations services to family and close fiends",dependOn:null},
     {text:"Recognizing family and friends needs",dependOn:null},
     {text:"Timing",dependOn:null},
     {text:"Family & friend’s involvement",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.392,0.144,0.320,0.144],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Fourth Sub-Secondary Indicators Pairwise comparison)",value:4,selectValue:9,symboles:[
     {text:"Timing",dependOn:null},
     {text:"Psychological care",dependOn:null},
     {text:"Emotional support",dependOn:null},
     {text:"Patients involvement in informed d4ecesion",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.432,0.190,0.213,0.165],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Fifth Sub-Secondary Indicators Pairwise comparison)",value:5,selectValue:10,symboles:[
     {text:"Pain management",dependOn:null},
@@ -89,7 +89,7 @@ setOptions(options?:any[]){
     {text:"Safety aspects",dependOn:null},
     {text:"Patient’s support to control physical complaints",dependOn:null},
     {text:"Physical comfort",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.354,0.100,0.235,0.093,0.218],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Sixth Sub-Secondary Indicators Pairwise comparison)",value:7,selectValue:11,symboles:[
     {text:"Information on patient status and treatment progress",dependOn:null},
@@ -99,7 +99,7 @@ setOptions(options?:any[]){
     {text:"Patient’s awareness in side effects",dependOn:null},
     {text:"Patient’s feedback (Regular Surveys)",dependOn:null},
     {text:"Privacy",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.160,0.281,0.157,0.104,0.099,0.074,0.124],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Seventh Sub-Secondary Indicators Pairwise comparison)",value:9,selectValue:12,symboles:[
     {text:"Effective communication with patient ",dependOn:null},
@@ -111,7 +111,7 @@ setOptions(options?:any[]){
     {text:"Equip pharmacy, medical records & other allied services with automation and updated tech",dependOn:null},
     {text:"Patient centeredness polices are in place",dependOn:null},
     {text:"Patient centeredness implementation",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.068,0.225,0.096,0.103,0.122,0.061,0.069,0.125,0.132],indicatoreValue:0,indicatoreCalculated:false},
   
   {show:"Sub-Secondary Indicators Pairwise comparison (Eighth Sub-Secondary Indicators Pairwise comparison)",value:7,selectValue:13,symboles:[
     {text:"Timing",dependOn:null},
@@ -121,7 +121,7 @@ setOptions(options?:any[]){
     {text:"Considerations to patient values, preferences, and express needs",dependOn:null},
     {text:"Companionate care",dependOn:null},
     {text:"Equality (patient with special needs are given care..",dependOn:null},
-    ],calculated:false,arrayResult:null,weightsResult:null,indicatoreValue:0,indicatoreCalculated:false},
+    ],calculated:false,arrayResult:null,weightsResult:[0.289,0.064,0.129,0.136,0.127,0.144,0.110],indicatoreValue:0,indicatoreCalculated:false},
   ]
 var opt=localStorage.getItem("options");
 if(opt){
