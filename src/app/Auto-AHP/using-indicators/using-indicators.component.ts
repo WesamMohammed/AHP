@@ -151,18 +151,27 @@ this.optionsService.updateOptions(this.options)
     this.options.forEach((o,i)=>{
       // data.push(o.show);
     let sum=0;
+    let finalSum=0;
+    (o.symboles as any[]).forEach((s,index)=>{
+        
+        
+     
+      sum+=(o.weightsResult[index]*100);
+  
+      
+    })
       data=[];
       (o.symboles as any[]).forEach((s,index)=>{
-        
-        
-        data.push({[o.show]:s.text,weights:o.weightsResult[index]*100,value:(o.userWeights.length>index?o.userWeights[index]:0)})
-        sum+=(o.weightsResult[index]*100);
-    
+        let userValue=(o.userWeights.length>index?o.userWeights[index]:0);
+        let final=(o.weightsResult[index]*100)*(userValue)/sum
+        data.push({[o.show]:s.text,weights:o.weightsResult[index]*100,value:userValue," ":final});
+       
+        finalSum+=final;
         
       })
       
       
-      data.push({[o.show]:null,weights:sum,value:null})
+      data.push({[o.show]:null,weights:sum,value:null," ":finalSum})
       const ws:XLSX.WorkSheet=XLSX.utils.json_to_sheet(data);
       XLSX.utils.book_append_sheet(wb,ws,`Sheet${i}`);
 
