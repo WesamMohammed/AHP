@@ -3,6 +3,7 @@ import { OptionsLocalstorageService } from '../../OptionsLocalstorage.service';
 import { AHPCollection, Mapping } from '../Rad-But/Rad-But.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouteBackService } from '../../route-back/route-back.service';
+import * as XLSX from 'xlsx';
 export interface WeightsWithUsers{
   programeWeight:number;
   userWeight:number;
@@ -135,10 +136,42 @@ this.value=factor/sum;
 
 this.currentOption.indicatoreValue=this.value;
 this.currentOption.indicatoreCalculated=true;
+this.currentOption.userWeights=this.weightsResultWithUser.map(a=>a.userWeight);
 this.optionsService.updateOptions(this.options)
 
   }
   rounding(value:number,num:number):number{
     return Math.round(value*num)/num;
+  }
+
+  exportToExcel(){
+    let fileName="AHP_Weights.xlsx"
+    const wb:XLSX.WorkBook=XLSX.utils.book_new();
+    let data:any[]=[]; //document.getElementById("weights");
+    this.options.forEach((o,i)=>{
+      // data.push(o.show);
+    let sum=0;
+      data=[];
+      (o.symboles as any[]).forEach((s,index)=>{
+        
+        
+        data.push({[o.show]:s.text,weights:o.weightsResult[index]*100,value:(o.userWeights.length>index?o.userWeights[index]:0)})
+        sum+=(o.weightsResult[index]*100);
+    
+        
+      })
+      
+      
+      data.push({[o.show]:null,weights:sum,value:null})
+      const ws:XLSX.WorkSheet=XLSX.utils.json_to_sheet(data);
+      XLSX.utils.book_append_sheet(wb,ws,`Sheet${i}`);
+
+
+    })
+    
+   
+    
+   
+    XLSX.writeFile(wb,fileName);
   }
 }
